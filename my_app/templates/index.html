@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- {% for board in board %} -->
+    <p id='welcome'></p>
+    <form>
+    <input type='text', id="name" /><br/>
+    <input type="button" onclick="write_name();" value="done" />
+    </form>
+    <script type="text/javascript">
+        function write_name() {
+            var welcome_parra = document.getElementById('welcome');
+            var name = document.getElementById('name')
+            welcome_parra.innerHTML = 'welcome' + name.value
+        }
+        write_name().save()
+    </script>
+<!-- {% endfor %} -->
+{% endblock %}
