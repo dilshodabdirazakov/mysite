@@ -1,0 +1,49 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Covered Loads</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Dispatch</th>
+							<th>Load num</th>
+							<th>Pickup num</th>
+							<th>Driver</th>
+							<th>Phone num</th>
+							<th>Origin</th>
+							<th>Delivery</th>
+							<th>Mile</th>
+							<th>Rate</th>
+							<th>Broker</th>
+							
+						</tr>
+
+						{% for i in board %}
+							<tr>
+								<td>{{i.dispatch}}</td>
+								<td>{{i.load_number}}</td>
+								<td>{{i.pickup_number}}</td>
+								<td>{{i.driver}}</td>
+								<td>{{i.phone_number}}</td>
+								<td>{{i.origin}}</td>
+								<td>{{i.delivery}}</td>
+								<td>{{i.mile}}</td>
+								<td>{{i.rate}}</td>
+								<td>{{i.broker}}</td>
+							</tr>
+						{% endfor %}
+						
+					</table>
+				</div>
+			</div>
+			
+		</div>
+
+{% endblock content %}
