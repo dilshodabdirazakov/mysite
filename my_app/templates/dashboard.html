@@ -1,0 +1,66 @@
+
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<head>
+	<title>Raptor transportation inc</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+	  <ul class="navbar-nav">
+		<li class="nav-item active">
+		  <a class="nav-link" href="{% url 'home' %}">Dashboard</a>
+		</li>
+		<li class="nav-item ">
+		  <a class="nav-link" href="{% url 'covered' %}">Covered Loads</a>
+		</li>
+	  </ul>
+	</div>
+  </nav>
+
+<br>
+
+<div class="row">
+
+	<div class="col-md-7">
+		<hr>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Driver name</th>
+					<th>Phone number</th>
+					<th>Status</th>
+					<th>Note#1</th>
+					<th>Note#2</th>
+				</tr>
+
+				{% for i in update %}
+					<tr>
+						<td>{{i.driver_name}}</td>
+						<td>{{i.phone_number}}</td>
+						<td>{{i.status}}</td>
+						<td>{{i.first_note}}</td>
+
+						<td>{{i.second_note}}</td>
+
+					</tr>
+				{% endfor %}
+
+		
+			</table>
+		</div>
+	</div>
+
+</div>
+<br>
+<a href="/admin">This link is Only for updaters!</a>
+
+{% endblock %}
+

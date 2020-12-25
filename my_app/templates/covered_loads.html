@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<head>
+	<title>Raptor transportation inc</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+	  <ul class="navbar-nav">
+		<li class="nav-item">
+		  <a class="nav-link" href="{% url 'home' %}">Dashboard</a>
+		</li>
+		<li class="nav-item active">
+		  <a class="nav-link" href="{% url 'covered' %}">Covered Loads</a>
+		</li>
+	  </ul>
+	</div>
+  </nav>
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Covered Loads</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Dispatch</th>
+							<th>Load num</th>
+							<th>Pickup num</th>
+							<th>Driver</th>
+							<th>Phone num</th>
+							<th>Origin</th>
+							<th>Delivery</th>
+							<th>Mile</th>
+							<th>Rate</th>
+							<th>Broker</th>
+							
+						</tr>
+
+						{% for i in covered %}
+							<tr>
+								<td>{{i.dispatch}}</td>
+								<td>{{i.load_number}}</td>
+								<td>{{i.pickup_number}}</td>
+								<td>{{i.driver}}</td>
+								<td>{{i.phone_number}}</td>
+								<td>{{i.origin}}</td>
+								<td>{{i.delivery}}</td>
+								<td>{{i.mile}}</td>
+								<td>{{i.rate}}</td>
+								<td>{{i.broker}}</td>
+							</tr>
+						{% endfor %}
+						
+					</table>
+				</div>
+			</div>
+			
+		</div>
